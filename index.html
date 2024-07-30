@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<?php
+    session_start();
+    $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'My Account';
+    ?>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Ladies Wear</a></li>
+                <li><a href="#">Mens Wear</a></li>
+                <li><a href="#">Kids Wear</a></li>
+                <li><a href="#">Furnitures</a></li>
+                <li><a href="#">Home Appliances</a></li>
+                <li><a href="#">Electronics Gadgets</a></li>
+            </ul>
+            <div class="account-info">
+                <a href="#"><?= $name ?></a>
+                <?php if (!isset($_SESSION['user_id'])): ?>
+                    <a href="login.php">Login</a>
+                    <a href="register.php">Create Account</a>
+                <?php else: ?>
+                    <a href="logout.php">Logout</a>
+                <?php endif; ?>
+                <a href="#">Your Cart</a>
+            </div>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search here">
+            <button>Search</button>
+        </div>
+    </header>
+     <!-- Image Slider Section -->
+     <section class="image-slider">
+        <div class="slides">
+            <img src="add1.jpg" class="active" alt="Ad Image 1"  >
+            <img src="add2.jpg" alt="Ad Image 2">
+            <img src="add3.jpg" alt="Ad Image 3">
+        </div>
+    </section>
+<main>
+   
+    <div class="collections">
+        <div class="collection-item">
+            <h2>Laptop Collection</h2>
+            <button>Shop Now</button>
+        </div>
+        <div class="collection-item">
+            <h2>Accessories Collection</h2>
+            <button>Shop Now</button>
+        </div>
+        <div class="collection-item">
+            <h2>Cameras Collection</h2>
+            <button>Shop Now</button>
+        </div>
+    </div>
+</main>
+<footer>
+        <p>&copy; 2024 Online Shop</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
